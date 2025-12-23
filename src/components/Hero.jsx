@@ -68,32 +68,40 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1 }}
-        className="w-full max-w-6xl px-4 z-20"
-      >
-        <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-slate-900/50 backdrop-blur-sm group">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-          
-          <div className="relative aspect-video">
-             <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/Sdei_uXo91M?si=GzZd52vB2J8jWqM_" // Example AI video
-                title="Company Video" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
-                allowFullScreen
-                className="w-full h-full object-cover"
-             />
-             <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] rounded-[2rem]" />
-          </div>
+      <div className='w-full h-full'>
+        <div className='relative'>
+           <div className="absolute -top-12 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-blue-600/30 rounded-full blur-[100px] z-10" />
+          <div className="absolute -top-12 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-indigo-600/30 rounded-full blur-[100px] z-10" />
+
         </div>
-      </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1 }}
+            className="w-full  px-4 z-20 relative"
+          >
+            <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-slate-900/50 backdrop-blur-sm group">
+              {/* <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent " /> */}
+              
+              
+              <div className="relative aspect-video">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/Sdei_uXo91M?si=GzZd52vB2J8jWqM_" // Example AI video
+                    title="Company Video" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    allowFullScreen
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] rounded-[2rem]" />
+              </div>
+            </div>
+          </motion.div>
+      </div>
     </section>
   );
 };

@@ -88,7 +88,7 @@ const Testimonials = () => {
             centeredSlides={true}
             slidesPerView={'auto'}
             loop={true}
-            loopedSlides={2}
+            loopedSlides={4}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
@@ -102,33 +102,32 @@ const Testimonials = () => {
             }}
             pagination={{ clickable: true }}
             modules={[EffectCoverflow, Pagination, Autoplay]}
-            className="pb-16 py-10"
+            className="pb-16 py-10 overflow-visible!"
             breakpoints={{
               320: {
-                slidesPerView: 1,
-              },
-              640: {
-                slidesPerView: 2,
+                slidesPerView: 'auto',
+                spaceBetween: 20
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 'auto',
+                spaceBetween: 30
               },
             }}
           >
-            {[...testimonials, ...testimonials].map((item, index) => (
-              <SwiperSlide key={`${item.id}-${index}`} className="max-w-[350px] md:max-w-[400px]">
+            {[...testimonials, ...testimonials, ...testimonials].map((item, index) => (
+              <SwiperSlide key={`${item.id}-${index}`} className="w-[300px]! md:w-[380px]!">
                 {({ isActive }) => (
                   <motion.div 
                     className={`
-                      relative p-8 rounded-3xl border transition-all duration-500
+                      relative p-8 rounded-3xl border transition-all duration-500 h-full flex flex-col justify-between
                       ${isActive 
-                        ? 'bg-gradient-to-b from-blue-900/40 to-slate-900/40 border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)] scale-95 z-10' 
+                        ? 'bg-linear-to-b from-blue-900/40 to-slate-900/40 border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)] scale-110 z-10' 
                         : 'glass-card border-white/5 scale-90 opacity-60 hover:opacity-100'}
                     `}
                   >
                     {/* User Icon */}
                     <div className="flex flex-col items-center text-center">
-                      <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 p-[2px]">
+                      <div className="w-16 h-16 mb-4 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 p-[2px]">
                          <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
                             <User size={32} className="text-white" />
                          </div>
@@ -152,7 +151,7 @@ const Testimonials = () => {
                         </p>
                         
                         {/* Decorative Line */}
-                        <div className={`mt-6 h-px w-24 mx-auto bg-gradient-to-r from-transparent ${isActive ? 'via-blue-500' : 'via-gray-600'} to-transparent`} />
+                        <div className={`mt-6 h-px w-24 mx-auto bg-linear-to-r from-transparent ${isActive ? 'via-blue-500' : 'via-gray-600'} to-transparent`} />
                       </div>
                     </div>
 
