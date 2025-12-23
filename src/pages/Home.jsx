@@ -1,9 +1,10 @@
-import React, { Suspense, lazy } from 'react';
-import LoadingScreen from '../components/LoadingScreen';
+import React, { Suspense, lazy } from "react";
+import LoadingScreen from "../components/LoadingScreen";
 
-const Hero = lazy(() => import('../components/Hero'));
-const Product = lazy(() => import('../components/Product'));
-const Testimonials = lazy(() => import('../components/Testimonials'));
+const Hero = lazy(() => import("../components/Hero"));
+const Product = lazy(() => import("../components/Product"));
+const Testimonials = lazy(() => import("../components/Testimonials"));
+const AboutUs = lazy(() => import("../components/AboutUs"));
 
 const Home = () => {
   return (
@@ -12,9 +13,9 @@ const Home = () => {
         <Suspense fallback={<LoadingScreen />}>
           <Hero />
           <Product />
+          <AboutUs />
           <Testimonials />
         </Suspense>
-
       </main>
       {/* <footer className="py-10 text-center text-gray-500 text-sm border-t border-white/5 mt-0 bg-black/20">
         <p>&copy; 2025 AI Worker Company. All rights reserved.</p>
