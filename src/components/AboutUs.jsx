@@ -44,7 +44,7 @@ const AboutUs = () => {
   ];
   return (
     <section
-      id="about"
+      id="about-us"
       className="py-20 relative overflow-hidden flex flex-col gap-30"
     >
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full blur-[100px] z-10" />

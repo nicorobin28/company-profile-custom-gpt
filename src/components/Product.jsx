@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { Tag, Gamepad2, ArrowUpRight, Compass } from "lucide-react";
+import { Tag, Gamepad2, ArrowUpRight, Compass, BookMarked, CircleDollarSign } from "lucide-react";
+
+
 
 const products = [
   {
@@ -12,6 +14,7 @@ const products = [
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
     tags: ["Mahasiswa", "Akademik", "Produktivitas"],
+    icon: <BookMarked size={28} className="text-blue-400" />,
   },
   {
     id: 2,
@@ -21,6 +24,7 @@ const products = [
     image:
       "https://images.unsplash.com/photo-1553877522-43269d4ea984",
     tags: ["Marketing", "Konten", "Growth"],
+    icon: <CircleDollarSign size={28} className="text-blue-400" />,
   },
 ];
 
@@ -118,7 +122,7 @@ const Product = () => {
                 {/* Title */}
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-3 rounded-2xl bg-white/5 group-hover:bg-blue-500/20 transition-colors">
-                    <Gamepad2 size={28} className="text-blue-400" />
+                    {item.icon}
                   </div>
                   <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
                     {item.title}

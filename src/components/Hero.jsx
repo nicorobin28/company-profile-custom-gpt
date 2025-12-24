@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Play, TrendingUp } from "lucide-react";
+import { Play } from "lucide-react";
 import heroImage from "../assets/robot.png";
+import { getYoutubeId } from "./GetYoutubeId";
+import YouTube from "react-youtube";
 
 const Hero = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const urlYoutube = "https://youtu.be/_JSyB6Nnkfg?si=RUJqzzkNBYiTKdGl";
+  const idYoutube = getYoutubeId(urlYoutube);
+
+  const opts = {
+    height: "100%",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
   return (
     <section
       id="home"
@@ -84,22 +102,36 @@ const Hero = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1 }}
-          className="w-full  px-4 z-20 relative"
+          className="w-full max-w-6xl px-4 z-20 relative mx-auto"
         >
           <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-slate-900/50 backdrop-blur-sm group">
-            <div className="relative aspect-video">
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/Sdei_uXo91M?si=GzZd52vB2J8jWqM_" // Example AI video
-                title="Company Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] rounded-[2rem]" />
+            <div className="relative aspect-video w-full h-full">
+              {!isPlaying ? (
+                <div 
+                  className="absolute inset-0 z-20 flex items-center justify-center bg-black/50 group-hover:bg-black/40 transition-colors cursor-pointer"
+                  onClick={handlePlay}
+                >
+                  <img 
+                    src={`https://img.youtube.com/vi/${idYoutube}/maxresdefault.jpg`} 
+                    alt="Video Thumbnail" 
+                    className="absolute inset-0 w-full h-full object-cover -z-10 opacity-80"
+                  />
+                  <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center pl-1 border border-white/20 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                     <Play size={32} fill="white" className="text-white drop-shadow-lg" />
+                  </div>
+                  <div className="absolute bottom-8 text-white font-medium tracking-wider text-sm uppercase bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                    Click to Play Video
+                  </div>
+                </div>
+              ) : (
+                <YouTube
+                  videoId={idYoutube}
+                  opts={opts}
+                  className="w-full h-full"
+                  iframeClassName="w-full h-full"
+                />
+              )}
+              <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] rounded-[2rem] z-10" />
             </div>
           </div>
         </motion.div>
