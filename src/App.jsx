@@ -1,22 +1,28 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoadingScreen from './components/LoadingScreen';
-import Navbar from './components/Navbar';
+// App.jsx
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingScreen from "./components/LoadingScreen";
+import Navbar from "./components/Navbar";
+import Faq from "./components/Faq";
 
-// Lazy load pages
-const Home = lazy(() => import('./pages/Home'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+const Home = lazy(() => import("./pages/Home"));
+const Productcard = lazy(() => import("./pages/Productcard"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   return (
     <Router>
       <Suspense fallback={<LoadingScreen />}>
-      <Navbar />
+        <Navbar />
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<Productcard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+
+        {/* FAQ tetap di bawah */}
+        <Faq />
       </Suspense>
     </Router>
   );

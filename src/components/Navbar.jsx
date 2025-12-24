@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -10,35 +10,35 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   }, [isOpen]);
 
-  const navLinks = ['Home', 'Product', 'About Us', 'Testimonials'];
+  const navLinks = ["Home", "Product", "About Us", "Testimonials"];
 
   const menuContainerVariants = {
-    hidden: { 
+    hidden: {
       scaleY: 0,
       opacity: 0,
     },
-    visible: { 
-      scaleY: 1, 
+    visible: {
+      scaleY: 1,
       opacity: 1,
-      transition: { 
-        duration: 0.5, 
+      transition: {
+        duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
         when: "beforeChildren",
-        staggerChildren: 0.1
-      }
+        staggerChildren: 0.1,
+      },
     },
     exit: {
       scaleY: 0,
@@ -48,22 +48,22 @@ const Navbar = () => {
         ease: "easeInOut",
         when: "afterChildren",
         staggerChildren: 0.05,
-        staggerDirection: -1
-      }
-    }
+        staggerDirection: -1,
+      },
+    },
   };
 
   const menuItemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    visible: { y: 0, opacity: 1 },
   };
-  
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <>
@@ -72,23 +72,29 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-background/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
+          scrolled
+            ? "bg-background/80 backdrop-blur-md py-4"
+            : "bg-transparent py-6"
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="text-2xl font-bold tracking-tight z-50 relative">Logo</div>
-          
+          <div className="text-2xl font-bold tracking-tight z-50 relative">
+            Logo
+          </div>
+
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-1 p-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-             {navLinks.map((item) => (
-               <a 
-                 key={item} 
-                 onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                 className="px-5 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer"
-               >
-                 {item}
-               </a>
-             ))}
+            {navLinks.map((item) => (
+              <a
+                key={item}
+                onClick={() =>
+                  scrollToSection(item.toLowerCase().replace(" ", "-"))
+                }
+                className="px-5 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer"
+              >
+                {item}
+              </a>
+            ))}
           </div>
 
           <button className="hidden md:block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all transform hover:scale-105">
@@ -96,7 +102,7 @@ const Navbar = () => {
           </button>
 
           {/* Mobile Toggle Button */}
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-white p-2 z-50 relative hover:bg-white/10 rounded-full transition-colors"
             aria-label="Toggle Menu"
@@ -115,31 +121,31 @@ const Navbar = () => {
             animate="visible"
             exit="exit"
             className="md:hidden fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center origin-center"
-            style={{ position: 'fixed' }} 
+            style={{ position: "fixed" }}
           >
-             <div className="flex flex-col items-center gap-8">
-               {navLinks.map((item) => (
-                 <motion.a
-                   key={item}
-                   variants={menuItemVariants}
-                   onClick={() => {
+            <div className="flex flex-col items-center gap-8">
+              {navLinks.map((item) => (
+                <motion.a
+                  key={item}
+                  variants={menuItemVariants}
+                  onClick={() => {
                     setIsOpen(false);
-                    scrollToSection(item.toLowerCase().replace(' ', '-'));
-                   }}
-                   className="text-2xl font-medium text-gray-200 hover:text-white transition-colors hover:scale-110 transform cursor-pointer"
-                 >
-                   {item}
-                 </motion.a>
-               ))}
-               
-               <motion.button 
-                 variants={menuItemVariants}
-                 className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full text-lg font-medium shadow-[0_0_20px_rgba(79,70,229,0.4)]"
-                 onClick={() => scrollToSection('connect')}
-               >
-                 Connect
-               </motion.button>
-             </div>
+                    scrollToSection(item.toLowerCase().replace(" ", "-"));
+                  }}
+                  className="text-2xl font-medium text-gray-200 hover:text-white transition-colors hover:scale-110 transform cursor-pointer"
+                >
+                  {item}
+                </motion.a>
+              ))}
+
+              <motion.button
+                variants={menuItemVariants}
+                className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full text-lg font-medium shadow-[0_0_20px_rgba(79,70,229,0.4)]"
+                onClick={() => scrollToSection("connect")}
+              >
+                Connect
+              </motion.button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

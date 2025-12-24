@@ -1,22 +1,27 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Tag, Gamepad2, ArrowUpRight, Compass } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Tag, Gamepad2, ArrowUpRight, Compass } from "lucide-react";
 
 const products = [
   {
     id: 1,
     title: "Gaming Industry",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image:
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop",
     tags: ["Marketing", "Marketing"],
   },
   {
     id: 2,
     title: "Entertainment",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    image:
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
     tags: ["Streaming", "Media"],
-  }
+  },
 ];
 
 const Product = () => {
@@ -37,8 +42,8 @@ const Product = () => {
             <Tag size={14} />
             <span>Price</span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -47,15 +52,16 @@ const Product = () => {
           >
             Plans Made for <br /> Teams of All Sizes
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-gray-400 max-w-lg mx-auto"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor
           </motion.p>
         </div>
 
@@ -74,14 +80,19 @@ const Product = () => {
               {/* Image Container */}
               <div className="relative h-64 md:h-72 rounded-[2rem] overflow-hidden mb-6">
                 <div className="absolute top-4 left-4 z-10">
-                   <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium text-white hover:bg-white/20 transition-colors cursor-pointer group/btn">
+                  <Link to={`/product/${item.id}`}>
+                    <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium text-white hover:bg-white/20 transition-colors cursor-pointer group/btn">
                       <span>Explore Detail</span>
-                      <Compass size={16} className="group-hover/btn:rotate-45 transition-transform" />
-                   </div>
+                      <Compass
+                        size={16}
+                        className="group-hover/btn:rotate-45 transition-transform"
+                      />
+                    </div>
+                  </Link>
                 </div>
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
+                <img
+                  src={item.image}
+                  alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay Gradient */}
@@ -93,7 +104,10 @@ const Product = () => {
                 {/* Tags */}
                 <div className="flex gap-3 mb-6">
                   {item.tags.map((tag, i) => (
-                    <span key={i} className="flex items-center gap-1.5 text-xs font-medium text-blue-300 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20">
+                    <span
+                      key={i}
+                      className="flex items-center gap-1.5 text-xs font-medium text-blue-300 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20"
+                    >
                       <ArrowUpRight size={12} />
                       {tag}
                     </span>
@@ -105,7 +119,9 @@ const Product = () => {
                   <div className="p-3 rounded-2xl bg-white/5 group-hover:bg-blue-500/20 transition-colors">
                     <Gamepad2 size={28} className="text-blue-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">{item.title}</h3>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                    {item.title}
+                  </h3>
                 </div>
 
                 {/* Description */}
