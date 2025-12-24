@@ -13,10 +13,14 @@ function App() {
       <ScrollToTop />
       <Suspense fallback={<LoadingScreen />}>
         <Navbar />
-        <AnimatedRoutes />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<Productcard />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
         <Footer />
         {/* FAQ tetap di bawah */}
-        {/* <Faq /> */}
+        <Faq />
       </Suspense>
     </Router>
   );

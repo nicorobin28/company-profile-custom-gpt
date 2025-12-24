@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,10 +61,23 @@ const Navbar = () => {
     visible: { y: 0, opacity: 1 },
   };
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (sectionId) => {
+    setIsOpen(false);
+
+    if (location.pathname !== "/") {
+      navigate("/");
+
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -88,7 +104,7 @@ const Navbar = () => {
               <a
                 key={item}
                 onClick={() =>
-                  scrollToSection(item.toLowerCase().replace(" ", "-"))
+                  handleNavClick(item.toLowerCase().replace(" ", "-"))
                 }
                 className="px-5 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer"
               >
@@ -128,10 +144,9 @@ const Navbar = () => {
                 <motion.a
                   key={item}
                   variants={menuItemVariants}
-                  onClick={() => {
-                    setIsOpen(false);
-                    scrollToSection(item.toLowerCase().replace(" ", "-"));
-                  }}
+                  onClick={() =>
+                    handleNavClick(item.toLowerCase().replace(" ", "-"))
+                  }
                   className="text-2xl font-medium text-gray-200 hover:text-white transition-colors hover:scale-110 transform cursor-pointer"
                 >
                   {item}
