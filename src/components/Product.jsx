@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Tag, Gamepad2, ArrowUpRight, Compass } from "lucide-react";
 
 const products = [
@@ -25,6 +25,8 @@ const products = [
 ];
 
 const Product = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="product" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
@@ -75,20 +77,19 @@ const Product = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
               whileHover={{ y: -10 }}
-              className="group relative rounded-[2.5rem] bg-[#0c1226] border border-white/5 p-4 md:p-6 overflow-hidden transition-all duration-300 hover:shadow-[0_0_50px_rgba(59,130,246,0.15)] hover:border-blue-500/30"
+              onClick={() => navigate(`/product/${item.id}`)}
+              className="group relative rounded-[2.5rem] bg-[#0c1226] border border-white/5 p-4 md:p-6 overflow-hidden transition-all duration-300 hover:shadow-[0_0_50px_rgba(59,130,246,0.15)] hover:border-blue-500/30 cursor-pointer"
             >
               {/* Image Container */}
               <div className="relative h-64 md:h-72 rounded-[2rem] overflow-hidden mb-6">
                 <div className="absolute top-4 left-4 z-10">
-                  <Link to={`/product/${item.id}`}>
-                    <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium text-white hover:bg-white/20 transition-colors cursor-pointer group/btn">
-                      <span>Explore Detail</span>
-                      <Compass
-                        size={16}
-                        className="group-hover/btn:rotate-45 transition-transform"
-                      />
-                    </div>
-                  </Link>
+                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-sm font-medium text-white hover:bg-white/20 transition-colors group/btn">
+                    <span>Explore Detail</span>
+                    <Compass
+                      size={16}
+                      className="group-hover/btn:rotate-45 transition-transform"
+                    />
+                  </div>
                 </div>
                 <img
                   src={item.image}
