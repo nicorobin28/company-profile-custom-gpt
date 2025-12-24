@@ -6,21 +6,21 @@ import { Tag, Gamepad2, ArrowUpRight, Compass } from "lucide-react";
 const products = [
   {
     id: 1,
-    title: "Gaming Industry",
+    title: "Partner Ai untuk Mahasiswa",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Partner AI yang siap membantu kamu mengerjakan tugas, merangkum materi, menyusun skripsi, hingga persiapan presentasi, mencari journal—tanpa begadang, tanpa stres.",
     image:
-      "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop",
-    tags: ["Marketing", "Marketing"],
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    tags: ["Mahasiswa", "Akademik", "Produktivitas"],
   },
   {
     id: 2,
-    title: "Entertainment",
+    title: "Worker Ai untuk Marketing",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Tim AI yang membantu Research market, menyusun copywriting, ide konten, hingga strategi campaign—bekerja konsisten tanpa capek.",
     image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
-    tags: ["Streaming", "Media"],
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984",
+    tags: ["Marketing", "Konten", "Growth"],
   },
 ];
 
