@@ -20,7 +20,6 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
 
-        {/* FAQ tetap di bawah */}
         <Faq />
       </Suspense>
     </Router>

@@ -87,8 +87,6 @@ const Hero = () => {
           className="w-full  px-4 z-20 relative"
         >
           <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-slate-900/50 backdrop-blur-sm group">
-            {/* <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent " /> */}
-
             <div className="relative aspect-video">
               <iframe
                 width="100%"
