@@ -36,9 +36,12 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-4"
         >
-          Rekrut Worker Ai untuk <br className="hidden md:block" />
+          <span className="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+            REKRUT
+          </span>{" "}
+          WORKER AI UNTUK <br className="hidden md:block" />
           <span className="bg-gradient-to-r from-white via-white to-[#8F8F8F] text-transparent bg-clip-text inline-block">
-            Kebutuhan Anda.
+            KEBUTUHAN ANDA.
           </span>
         </motion.h1>
 

@@ -15,7 +15,7 @@ const testimonials = [
     name: "Alex Thompson",
     role: "Tech Lead",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Custom AI GPT ini benar-benar mengubah cara tim kami bekerja. Workflow jadi lebih cepat karena AI bisa disesuaikan dengan kebutuhan teknis kami, bukan solusi generik.",
     stars: 5,
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     name: "Sarah Chen",
     role: "Product Manager",
     content:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Yang paling kami rasakan adalah efisiensi. Custom AI GPT membantu analisis, perencanaan produk, hingga dokumentasi tanpa perlu banyak penyesuaian dari tim.",
     stars: 5,
   },
   {
@@ -31,7 +31,7 @@ const testimonials = [
     name: "James Wilson",
     role: "Founder",
     content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Sebagai founder, saya butuh AI yang bisa mengikuti visi bisnis kami. Custom AI GPT ini terasa seperti asisten internal yang memahami konteks dan tujuan perusahaan.",
     stars: 5,
   },
   {
@@ -39,7 +39,7 @@ const testimonials = [
     name: "Emily Davis",
     role: "Developer",
     content:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Integrasinya mulus dan sangat membantu dalam coding, debugging, serta dokumentasi. AI-nya terasa relevan karena dilatih sesuai kebutuhan kami sendiri.",
     stars: 4,
   },
 ];
@@ -70,9 +70,11 @@ const Testimonials = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-bold mb-4 bg-linear-to-r from-white via-white to-gray-400 bg-clip-text text-transparent"
           >
-            What They Said
-            <br />
-            About Our Performance
+            <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+              Kata
+            </span>{" "}
+            {""}
+            Mereka
           </motion.h2>
 
           <motion.p
@@ -80,9 +82,9 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 max-w-lg mx-auto"
+            className="text-gray-400 max-w-3xl mx-auto text-center"
           >
-            Some reviews about the projects we are working on
+            Cerita dan pengalaman nyata dari mereka yang bekerja bersama kami.
           </motion.p>
         </div>
 

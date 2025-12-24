@@ -46,7 +46,11 @@ const Faq = () => {
         </div>
 
         <h2 className="text-3xl md:text-4xl font-semibold text-white mb-12">
-          Frequently Asked Questions
+          Frequently{" "}
+          <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+            Asked
+          </span>{" "}
+          Questions
         </h2>
 
         <div className="space-y-4 text-left">
@@ -61,7 +65,6 @@ const Faq = () => {
               >
                 <div className="flex items-center justify-between gap-4">
                   <p className="font-medium">{item.question}</p>
-
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}

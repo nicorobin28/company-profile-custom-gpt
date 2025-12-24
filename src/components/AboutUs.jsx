@@ -44,7 +44,7 @@ const AboutUs = () => {
   ];
   return (
     <section
-      id="about"
+      id="about-us"
       className="py-20 relative overflow-hidden flex flex-col gap-30"
     >
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full blur-[100px] z-10" />
@@ -76,15 +76,18 @@ const AboutUs = () => {
             transition={{ duration: 1 }}
             className="w-full md:w-[700px] flex flex-col items-center md:items-start pt-0 md:pt-10"
           >
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent">
-              Who Are We
+            <h1 className="py-4 text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+                Tentang
+              </span>{" "}
+              Kami
             </h1>
-            <p className="text-center md:text-start text-white px-10 md:px-0">
+            <p className=" md:text-start text-white px-10 md:px-0 text-justify">
               PAKAI adalah platform untuk membangun kecerdasan digital yang
               bekerja untuk Anda. Hari ini sebagai Worker AI, dan ke depannya
-              sebagai fondasi masa depan kerja dan produktivitas manusia. <br />
-              Kami tidak sekadar menjual AI. Kami membantu Anda bersiap untuk
-              masa depan.
+              sebagai fondasi masa depan kerja dan produktivitas manusia. Kami
+              tidak sekadar menjual AI. Kami membantu Anda bersiap untuk masa
+              depan.
             </p>
           </motion.div>
         </div>
@@ -138,7 +141,13 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
           className="w-full flex flex-col gap-3 text-start px-5 md:px-0 mx-0 md:mx-40"
         >
-          <h1 className="text-3xl md:text-5xl">Why Should Us?</h1>
+          <h1 className="text-3xl md:text-5xl">
+            Kenapa Kamu Harus{" "}
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-700 bg-clip-text text-transparent">
+              Memilih
+            </span>{" "}
+            Kami
+          </h1>
           <p>
             Karena di era AI, masalahnya bukan lagi apakah Anda akan menggunakan
             AI, tetapi apakah AI tersebut benar-benar bekerja untuk Anda.
