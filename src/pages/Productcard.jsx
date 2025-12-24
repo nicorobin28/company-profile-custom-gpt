@@ -9,13 +9,19 @@ import {
   Box,
   Cpu,
   Monitor,
+  Play
 } from "lucide-react";
 import { AiOutlineProduct } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import Images from "../assets/imagecard.png";
+import { getYoutubeId } from "../components/GetYoutubeId";
+import YouTube from "react-youtube";
+import SEO from "../components/SEO";
 
 // Dummy Data Database
 const PRODUCTS_DB = {
+  // ... (no changes to DB)
+
   1: {
     id: 1,
     title: "Gaming Industry",
@@ -104,6 +110,8 @@ const PRODUCTS_DB = {
   },
 };
 
+const avatarClient = ["https://images.unsplash.com/photo-1643587905748-09131f983bf4", "https://images.unsplash.com/photo-1695013079417-712db80b40c8", "https://images.unsplash.com/photo-1614226931790-d6005682b78f", "https://images.unsplash.com/photo-1630420897833-1d453402f4a1", "https://images.unsplash.com/photo-1633450814122-5ac0d679a475"]
+
 const Productcard = () => {
   const { id } = useParams();
   const [activeAdds, setActiveAdds] = useState([]);
@@ -181,8 +189,32 @@ Mohon bantuannya untuk pemesanan. Terima kasih!`;
     setActiveAdds([]);
   }, [id]);
 
+
+  // Handle Play Video
+  const [handlePlay, setHandlePlay] = useState(false);
+
+   const urlYoutube = "https://youtu.be/_JSyB6Nnkfg?si=RUJqzzkNBYiTKdGl";
+    const idYoutube = getYoutubeId(urlYoutube);
+  
+    const opts = {
+      height: "100%",
+      width: "100%",
+      playerVars: {
+        autoplay: 1,
+      },
+    };
+
+  const handlePlayVideo = () => {
+    setHandlePlay(true);
+  };
+
   return (
-    <section className="relative min-h-screen bg-[#050B1E] py-24 md:py-32 overflow-hidden font-sans">
+    <section className="relative min-h-screen py-24 md:py-32 overflow-hidden font-sans">
+      <SEO 
+        title={product.title} 
+        description={product.description}
+        image={product.image}
+      />
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div
@@ -226,25 +258,47 @@ Mohon bantuannya untuk pemesanan. Terima kasih!`;
         </div>
 
         {/* Video / Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(59,130,246,0.15)] bg-gray-900/50 backdrop-blur-sm mb-24 group"
+         <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1 }}
+          className="w-full  px-4 z-20 relative mx-auto my-10"
         >
-          <div className="relative aspect-video w-full">
-            <iframe
-              src={`${product.videoUrl}?autoplay=0&rel=0&showinfo=0`}
-              title={product.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full object-cover"
-            />
+          <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-slate-900/50 backdrop-blur-sm group">
+            <div className="relative aspect-video w-full h-full">
+              {!handlePlay ? (
+                <div 
+                  className="absolute inset-0 z-20 flex items-center justify-center bg-black/50 group-hover:bg-black/40 transition-colors cursor-pointer"
+                  onClick={handlePlayVideo}
+                >
+                  <img 
+                    src={`https://img.youtube.com/vi/${idYoutube}/maxresdefault.jpg`} 
+                    alt="Video Thumbnail" 
+                    className="absolute inset-0 w-full h-full object-cover -z-10 opacity-80"
+                  />
+                  <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center pl-1 border border-white/20 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                     <Play size={32} fill="white" className="text-white drop-shadow-lg" />
+                  </div>
+                  <div className="absolute bottom-8 text-white font-medium tracking-wider text-sm uppercase bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                    Click to Play Video
+                  </div>
+                </div>
+              ) : (
+                <YouTube
+                  videoId={idYoutube}
+                  opts={opts}
+                  className="w-full h-full"
+                  iframeClassName="w-full h-full"
+                />
+              )}
+              <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(0,0,0,0.5)] rounded-[2rem] z-10" />
+            </div>
           </div>
         </motion.div>
 
         {/* Info Split Section */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center my-24">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -268,13 +322,13 @@ Mohon bantuannya untuk pemesanan. Terima kasih!`;
 
             <div className="flex items-center gap-4 pt-4">
               <div className="flex -space-x-4">
-                {[1, 2, 3, 4].map((i) => (
+                {avatarClient.map((i) => (
                   <div
                     key={i}
                     className="w-10 h-10 rounded-full border-2 border-[#050B1E] bg-gray-700 flex items-center justify-center text-xs text-white overflow-hidden"
                   >
                     <img
-                      src={`https://i.pravatar.cc/100?img=${i + 10}`}
+                      src={i}
                       alt="user"
                     />
                   </div>

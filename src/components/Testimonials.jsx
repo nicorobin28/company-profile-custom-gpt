@@ -12,15 +12,15 @@ import "swiper/css/effect-coverflow";
 const testimonials = [
   {
     id: 1,
-    name: "Alex Thompson",
-    role: "Tech Lead",
+    name: "Salsabila Raudah",
+    role: "Product Designer",
     content:
       "Custom AI GPT ini benar-benar mengubah cara tim kami bekerja. Workflow jadi lebih cepat karena AI bisa disesuaikan dengan kebutuhan teknis kami, bukan solusi generik.",
     stars: 5,
   },
   {
     id: 2,
-    name: "Sarah Chen",
+    name: "Muhammad Taufiq",
     role: "Product Manager",
     content:
       "Yang paling kami rasakan adalah efisiensi. Custom AI GPT membantu analisis, perencanaan produk, hingga dokumentasi tanpa perlu banyak penyesuaian dari tim.",
@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "James Wilson",
+    name: "Zahra Adisvitra",
     role: "Founder",
     content:
       "Sebagai founder, saya butuh AI yang bisa mengikuti visi bisnis kami. Custom AI GPT ini terasa seperti asisten internal yang memahami konteks dan tujuan perusahaan.",
@@ -36,7 +36,7 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Emily Davis",
+    name: "Dimas Nugroho",
     role: "Developer",
     content:
       "Integrasinya mulus dan sangat membantu dalam coding, debugging, serta dokumentasi. AI-nya terasa relevan karena dilatih sesuai kebutuhan kami sendiri.",

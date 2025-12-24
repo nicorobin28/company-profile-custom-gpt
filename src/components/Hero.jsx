@@ -22,6 +22,13 @@ const Hero = () => {
     setIsPlaying(true);
   };
 
+  const handleJumpToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -48,50 +55,68 @@ const Hero = () => {
       </motion.div>
 
       <div className="text-center z-10 px-4 max-w-5xl">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-4"
-        >
-          <span className="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
-            REKRUT
-          </span>{" "}
-          WORKER AI UNTUK <br className="hidden md:block" />
-          <span className="bg-gradient-to-r from-white via-white to-[#8F8F8F] text-transparent bg-clip-text inline-block">
-            KEBUTUHAN ANDA.
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light"
-        >
-          Bukan AI generik. Ini worker Ai yang sudah dilatih untuk{" "}
-          <br className="hidden md:block" />
-          anda untuk membantu pekerjaan anda sehari-hari.
-        </motion.p>
-
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex items-center justify-center gap-4 mb-20"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3,
+              },
+            },
+          }}
         >
-          <div className="h-px w-16 md:w-64 bg-gradient-to-r from-transparent to-gray-600" />
+          <motion.h1
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+            }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-4"
+          >
+            <span className="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+              REKRUT
+            </span>{" "}
+            WORKER AI UNTUK <br className="hidden md:block" />
+            <span className="bg-gradient-to-r from-white via-white to-[#8F8F8F] text-transparent bg-clip-text inline-block">
+              KEBUTUHAN ANDA.
+            </span>
+          </motion.h1>
 
-          <button className="group relative bg-gradient-to-b from-gray-100 to-gray-300 text-slate-900 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all hover:-translate-y-1">
-            Start Now
-            <Play
-              size={18}
-              fill="currentColor"
-              className="group-hover:translate-x-1 transition-transform"
-            />
-          </button>
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+            }}
+            className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+          >
+            Bukan AI generik. Ini worker Ai yang sudah dilatih untuk{" "}
+            <br className="hidden md:block" />
+            anda untuk membantu pekerjaan anda sehari-hari.
+          </motion.p>
 
-          <div className="h-px w-16 md:w-64 bg-gradient-to-l from-transparent to-gray-600" />
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, scale: 0.9 },
+              visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+            }}
+            className="flex items-center justify-center gap-4 mb-20"
+          >
+            <div className="h-px w-16 md:w-64 bg-gradient-to-r from-transparent to-gray-600" />
+            
+            <button onClick={() => handleJumpToSection("product")} className="group relative bg-gradient-to-b from-gray-100 to-gray-300 text-slate-900 px-8 py-3 rounded-full font-bold flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all hover:-translate-y-1 cursor-pointer">
+              Start Now
+              <Play
+                size={18}
+                fill="currentColor"
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </button>
+
+            <div className="h-px w-16 md:w-64 bg-gradient-to-l from-transparent to-gray-600" />
+          </motion.div>
         </motion.div>
       </div>
 
