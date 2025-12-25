@@ -35,9 +35,9 @@ const Faq = () => {
   return (
     <section
       id="question"
-      className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#050B1E] via-[#070F2E] to-[#050B1E]"
+      className="relative min-h-screen w-full overflow-hidden"
     >
-      <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/20 blur-[160px]" />
+      <div className="absolute top-[80px] left-1/2 -translate-x-1/2 rounded-full w-[500px] h-[500px] bg-blue-500/20 blur-[50px]" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 pt-24 pb-[360px] md:pb-[280px] text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm mb-6 backdrop-blur-md text-blue-400">
@@ -95,40 +95,6 @@ const Faq = () => {
               </div>
             );
           })}
-        </div>
-      </div>
-
-      <div className="absolute bottom-5 md:bottom-5 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl rounded-3xl bg-white/3 border border-white/10 backdrop-blur-2xl px-8 py-6 text-gray-300 z-20">
-        <div className="flex flex-col md:flex-row justify-between gap-10 text-sm">
-          <div className="text-left">
-            <p className="text-white font-semibold text-lg mb-3">Logo</p>
-            <p>Nama Company</p>
-            <p className="text-xs mt-3 text-gray-400">
-              © 2025 Company. All Rights Reserved.
-            </p>
-          </div>
-
-          <div className="flex gap-10 md:gap-14">
-            <div className="text-left">
-              <p className="text-white font-semibold mb-3">Menu</p>
-              <ul className="space-y-2">
-                <li className="hover:text-white cursor-pointer">Home</li>
-                <li className="hover:text-white cursor-pointer">About</li>
-                <li className="hover:text-white cursor-pointer">Product</li>
-                <li className="hover:text-white cursor-pointer">Testimonial</li>
-              </ul>
-            </div>
-
-            <div className="text-left">
-              <p className="text-white font-semibold mb-3">Legal</p>
-              <ul className="space-y-2">
-                <li className="hover:text-white cursor-pointer">Terms</li>
-                <li className="hover:text-white cursor-pointer">Privacy</li>
-                <li className="hover:text-white cursor-pointer">Cookies</li>
-                <li className="hover:text-white cursor-pointer">License</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </section>

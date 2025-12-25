@@ -94,8 +94,8 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="text-2xl font-bold tracking-tight z-50 relative">
-            Logo
+          <div className="font-bold tracking-tight z-50 relative w-24">
+            <img src={import.meta.env.VITE_URL_LOGO} alt="" />
           </div>
 
           {/* Desktop Menu */}
@@ -113,7 +113,10 @@ const Navbar = () => {
             ))}
           </div>
 
-          <button className="hidden md:block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all transform hover:scale-105">
+          <button onClick={() => { 
+            const encodedMessage = encodeURIComponent("Halo, saya ingin mengetahui lebih detail PAKAI.");
+            window.open(`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}?text=${encodedMessage}`, "_blank");
+           }} className="hidden md:block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all transform hover:scale-105">
             Connect
           </button>
 

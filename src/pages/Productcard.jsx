@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {
   ArrowRight,
@@ -12,16 +12,13 @@ import {
   Play
 } from "lucide-react";
 import { AiOutlineProduct } from "react-icons/ai";
-import { motion, AnimatePresence } from "framer-motion";
-import Images from "../assets/imagecard.png";
+import { motion } from "framer-motion";
 import { getYoutubeId } from "../components/GetYoutubeId";
 import YouTube from "react-youtube";
 import SEO from "../components/SEO";
 
 // Dummy Data Database
 const PRODUCTS_DB = {
-  // ... (no changes to DB)
-
   1: {
     id: 1,
     title: "Gaming Industry",
@@ -181,7 +178,7 @@ ${isBundle ? `*BUNDLE DISCOUNT APPLIED!*` : ""}
 Mohon bantuannya untuk pemesanan. Terima kasih!`;
 
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/6281234567800?text=${encodedMessage}`, "_blank");
+    window.open(`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}?text=${encodedMessage}`, "_blank");
   };
 
   // Reset selection when product changes

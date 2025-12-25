@@ -7,6 +7,8 @@ import SEO from "../components/SEO";
 const Product = lazy(() => import("../components/Product"));
 const Testimonials = lazy(() => import("../components/Testimonials"));
 const AboutUs = lazy(() => import("../components/AboutUs"));
+const Faq = lazy(() => import("../components/Faq"));
+
 
 const Home = () => {
   return (
@@ -22,6 +24,7 @@ const Home = () => {
           <Product />
           <AboutUs />
           <Testimonials />
+          <Faq/>
         </Suspense>
       </main>
     </div>
