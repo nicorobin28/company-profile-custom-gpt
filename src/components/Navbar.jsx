@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
+  const logoUrl = new URL(import.meta.env.VITE_URL_LOGO, import.meta.url).href;
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -95,7 +96,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="font-bold tracking-tight z-50 relative w-24">
-            <img src={import.meta.env.VITE_URL_LOGO} alt="" />
+            <img src={logoUrl} alt="" />
           </div>
 
           {/* Desktop Menu */}

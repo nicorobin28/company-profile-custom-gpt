@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 
 const Footer = () => {
 
+    const logoUrl = new URL(import.meta.env.VITE_URL_LOGO, import.meta.url).href;
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -80,7 +81,7 @@ const Footer = () => {
             <div className='flex md:flex-row flex-col justify-between gap-11 md:gap-0'>
                 <div className='flex flex-col gap-12'>
                     <div className='w-24 '>
-                        <img src={import.meta.env.VITE_URL_LOGO} alt="" />
+                        <img src={logoUrl} alt="" />
                     </div>
                     <div className='flex flex-col gap-6'>
                         <div className='flex flex-col gap-4'>
